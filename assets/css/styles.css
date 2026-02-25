@@ -18,7 +18,7 @@ body{
   color: var(--text);
   background-color: #0f172a;
 }
-.container{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+.container{max-width:1100px;margin:0 auto;padding:28px 18px 60px;background-color: #0f172a;}
 .topbar{
   display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
   padding:24px;border:2px solid var(--line);border-radius:var(--radius);
