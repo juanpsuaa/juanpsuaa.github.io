@@ -10,7 +10,6 @@
   --bg: #0a0a0f;
   --card: #12121a;
   --primary: #7c3aed;
-  --secondary: #a78bfa;
   --text: #e5e7eb;
   --muted: #9ca3af;
 }
@@ -69,13 +68,28 @@ body {
   border-radius:12px;
 }
 
-/* GRID */
-.grid2 {
-  display:grid;
-  grid-template-columns:1fr 1fr;
+/* PROFILE */
+.profile-row {
+  display:flex;
+  align-items:center;
   gap:20px;
 }
 
+.profile-row img {
+  width:100px;
+  height:100px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid var(--primary);
+  transition:0.3s;
+}
+
+.profile-row img:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 15px var(--primary);
+}
+
+/* GRID */
 .cards {
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
@@ -87,18 +101,15 @@ body {
   background:#181825;
   padding:15px;
   border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
   transition:0.3s;
 }
 
 .card:hover {
   transform:translateY(-6px);
   box-shadow:0 0 15px rgba(124,58,237,0.4);
-}
-
-/* PROFILE */
-.profile img {
-  width:100%;
-  border-radius:10px;
 }
 
 /* PILLS */
@@ -141,12 +152,14 @@ body {
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .grid2 {
-    grid-template-columns:1fr;
-  }
   .topbar {
     flex-direction:column;
     gap:15px;
+  }
+
+  .profile-row {
+    flex-direction:column;
+    text-align:center;
   }
 }
 </style>
@@ -169,17 +182,16 @@ body {
 
 <section class="section fade">
   <h2>Sobre mí</h2>
-  <div class="grid2">
-    <div class="profile">
-      <img src="assets/img/WhatsApp Image 2026-03-01 at 11.42.37.jpeg" style= "max-width:100px">
+
+  <div class="profile-row">
+    <img src="assets/img/WhatsApp Image 2026-03-01 at 11.42.37.jpeg" alt="foto">
+
+    <div>
       <p>
         Soy estudiante de Desarrollo de Aplicaciones Multiplataforma con interés en backend.
         Trabajo con Java, SQL y tecnologías web, y busco seguir creciendo como desarrollador.
       </p>
-    </div>
 
-    <div>
-      <h3>Habilidades</h3>
       <div>
         <span class="pill">Java</span>
         <span class="pill">SQL</span>
@@ -187,9 +199,6 @@ body {
         <span class="pill">JavaScript</span>
         <span class="pill">Git</span>
       </div>
-
-      <h3 style="margin-top:15px">Objetivo</h3>
-      <p>Busco prácticas para desarrollarme como backend developer.</p>
     </div>
   </div>
 </section>
@@ -234,10 +243,13 @@ function render(repos){
   list.forEach(r=>{
     el.innerHTML += `
       <div class="card fade">
-        <h3>${r.name}</h3>
-        <p class="muted">${r.description||"Sin descripción"}</p>
-        <p>⭐ ${r.stargazers_count} | ${r.language||""}</p>
-        <a class="btn" href="${r.html_url}" target="_blank">Ver</a>
+        <div>
+          <h3>${r.name}</h3>
+          <p class="muted">${r.description||"Sin descripción"}</p>
+          <p>⭐ ${r.stargazers_count} | ${r.language||""}</p>
+        </div>
+
+        <a class="btn" href="${r.html_url}" target="_blank">Ver repo</a>
       </div>
     `;
   });
