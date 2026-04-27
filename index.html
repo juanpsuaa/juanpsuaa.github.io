@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Pablo Bermudez Suarez</title>
 
 <style>
 :root {
@@ -9,127 +15,256 @@
   --muted: #9ca3af;
 }
 
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Segoe UI', sans-serif;
 }
 
 /* HEADER */
 .topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
-  border-bottom: 1px solid var(--primary);
-  animation: fadeDown 0.8s ease;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:30px;
+  border-bottom:1px solid var(--primary);
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size:2.2rem;
   color: var(--primary);
+}
+
+.muted {
+  color: var(--muted);
 }
 
 /* BOTONES */
 .btn {
-  background: transparent;
-  border: 1px solid var(--primary);
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: var(--text);
-  transition: 0.3s;
+  border:1px solid var(--primary);
+  padding:8px 14px;
+  border-radius:8px;
+  color:var(--text);
+  text-decoration:none;
+  transition:0.3s;
 }
 
 .btn:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px var(--primary);
+  background:var(--primary);
+  box-shadow:0 0 10px var(--primary);
 }
 
 /* SECCIONES */
 .section {
-  margin: 30px 0;
-  padding: 25px;
-  border-radius: 12px;
-  background: var(--card);
-  animation: fadeUp 0.8s ease;
-}
-
-/* CARDS */
-.card {
-  background: #181825;
-  padding: 18px;
-  border-radius: 12px;
-  transition: 0.3s;
-  border: 1px solid transparent;
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.01);
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  margin:30px auto;
+  padding:25px;
+  max-width:1100px;
+  background:var(--card);
+  border-radius:12px;
 }
 
 /* GRID */
 .grid2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:15px;
+}
+
+/* CARDS */
+.card {
+  background:#181825;
+  padding:15px;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 0 15px rgba(124,58,237,0.4);
 }
 
 /* PROFILE */
 .profile img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  width:100%;
+  border-radius:10px;
 }
 
 /* PILLS */
 .pill {
-  background: var(--primary);
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin: 3px;
-  display: inline-block;
-}
-
-/* ANIMACIONES */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-20px);}
-  to { opacity: 1; transform: translateY(0);}
+  background:var(--primary);
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:0.8rem;
+  margin:3px;
+  display:inline-block;
 }
 
 /* INPUTS */
 .input, .select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid var(--primary);
-  background: #0f172a;
-  color: white;
+  padding:8px;
+  border-radius:6px;
+  border:1px solid var(--primary);
+  background:#0f172a;
+  color:white;
+}
+
+/* TOOLBAR */
+.toolbar {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ANIMACIONES */
+.fade {
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s;
+}
+
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px){
+@media(max-width:768px){
   .grid2 {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
-
   .topbar {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    flex-direction:column;
+    gap:15px;
   }
 }
 </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div>
+    <h1 class="title">Juan Pablo Bermudez Suarez</h1>
+    <p class="muted">Estudiante DAM | Backend Java</p>
+  </div>
+
+  <nav style="display:flex;gap:10px">
+    <a class="btn" href="https://www.linkedin.com/in/juan-suarez-0011ab3b3/" target="_blank">LinkedIn</a>
+    <a class="btn" href="https://github.com/juanpsuaa" target="_blank">GitHub</a>
+    <a class="btn" href="mailto:juanpsuaa@gmail.com">Email</a>
+  </nav>
+</header>
+
+<section class="section fade">
+  <h2>Sobre mí</h2>
+  <div class="grid2">
+    <div class="profile">
+      <img src="assets/img/WhatsApp Image 2026-03-01 at 11.42.37.jpeg">
+      <p>
+        Soy estudiante de Desarrollo de Aplicaciones Multiplataforma con interés en backend.
+        Trabajo con Java, SQL y tecnologías web, y busco seguir creciendo como desarrollador.
+      </p>
+    </div>
+
+    <div>
+      <h3>Habilidades</h3>
+      <div>
+        <span class="pill">Java</span>
+        <span class="pill">SQL</span>
+        <span class="pill">HTML/CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Git</span>
+      </div>
+
+      <h3 style="margin-top:15px">Objetivo</h3>
+      <p>Busco prácticas para desarrollarme como backend developer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <h2>Repositorios</h2>
+
+  <div class="toolbar">
+    <input id="q" class="input" placeholder="Buscar..." />
+    <select id="sort" class="select">
+      <option value="updated">Recientes</option>
+      <option value="stars">Estrellas</option>
+    </select>
+  </div>
+
+  <div style="height:15px"></div>
+  <div id="repos" class="cards"></div>
+</section>
+
+<script>
+const USER = "juanpsuaa";
+
+async function getRepos(){
+  const res = await fetch(`https://api.github.com/users/${USER}/repos`);
+  return await res.json();
+}
+
+function render(repos){
+  const q = document.getElementById("q").value.toLowerCase();
+  const sort = document.getElementById("sort").value;
+
+  let list = repos.filter(r =>
+    r.name.toLowerCase().includes(q)
+  );
+
+  if(sort==="stars") list.sort((a,b)=>b.stargazers_count-a.stargazers_count);
+  else list.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+
+  const el = document.getElementById("repos");
+  el.innerHTML="";
+
+  list.forEach(r=>{
+    el.innerHTML += `
+      <div class="card fade">
+        <h3>${r.name}</h3>
+        <p class="muted">${r.description||"Sin descripción"}</p>
+        <p>⭐ ${r.stargazers_count} | ${r.language||""}</p>
+        <a class="btn" href="${r.html_url}" target="_blank">Ver</a>
+      </div>
+    `;
+  });
+
+  observe();
+}
+
+function observe(){
+  const els = document.querySelectorAll(".fade");
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add("show");
+    });
+  });
+  els.forEach(e=>obs.observe(e));
+}
+
+async function init(){
+  const repos = await getRepos();
+  render(repos);
+
+  document.getElementById("q").addEventListener("input", ()=>render(repos));
+  document.getElementById("sort").addEventListener("change", ()=>render(repos));
+}
+
+init();
+</script>
+
+</body>
+</html>
